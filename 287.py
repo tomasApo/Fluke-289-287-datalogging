@@ -1,7 +1,3 @@
-# ******************************************************************************
-# Fluke 287 data logger
-# 2020 Grease monkey - No rights reserved
-# ******************************************************************************
 import serial
 import threading
 import csv
@@ -12,20 +8,22 @@ ser = serial.Serial()   # open serial port
 
 print(ser.name)  
 
-# Setup logging  # Serial port
+#set frequency and seconds wanted
 frequency = 20 #hz  1- 20
-seconds_wanted = 20
+seconds_wanted = 20 #In seconds
+
+#set on file name and location
+output_filename = 'dmm_out_oldPrototypev2.csv'
+output_directory = "/home/tomasinha/Desktop"
+
+# Serial port setup and open
+ser.port = "/dev/ttyUSB0"  
 
 no_of_records = seconds_wanted*frequency
-
-output_filename = 'dmm_out_oldPrototypev2.csv'
-
-output_directory = "/home/tomasinha/Desktop"
 logging_period = 1/frequency
 print(logging_period)
 os.chdir(output_directory)
-# Serial port setup and open
-ser.port = "/dev/ttyUSB0"  
+
 ser.baudrate = 115200
 ser.bytesize = serial.EIGHTBITS
 ser.parity = serial.PARITY_NONE
