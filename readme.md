@@ -3,7 +3,7 @@
 Cable used [Fluke IR189USB USB Cable adapter](https://www.fluke.com/en-gb/product/accessories/adapters/fluke-ir189usb)
 
 
-Script created in python 
+Script created in Python 
 
 Make sure you download pyserial ``python -m pip install pyserial``
 
